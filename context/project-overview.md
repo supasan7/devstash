@@ -247,6 +247,13 @@ model ItemTag {
 
 ---
 
+### Screenshots
+
+Refer to the screenshots below as a base for the dashboard UI. It does not have to be exact. Use it as reference:
+
+- @context/screenshots/dashboard-ui-drawer.png
+- @context/screenshots/dashboard-ui-main.png
+
 ## 🔌 API Architecture
 
 ```mermaid
@@ -281,21 +288,6 @@ flowchart TD
   API --> OpenAI
   OpenAI --> Suggestions{{Tags / Summary / Explain Code}}
   Suggestions --> UI_Update
-```
-
----
-
-## 🗂️ Development Workflow (For Course)
-
-- **One branch per lesson** (students can follow & compare)
-- Use **Cursor / Claude Code / ChatGPT** for assistance
-- Sentry for runtime monitoring & error tracking
-- GitHub Actions (optional for CI)
-
-**Branch examples**:
-
-```
-git switch -c lesson-01-setup
 ```
 
 ---
