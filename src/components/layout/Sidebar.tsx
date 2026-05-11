@@ -29,6 +29,16 @@ const ICON_MAP: Record<string, LucideIcon> = {
   link: LinkIcon,
 };
 
+const ICON_COLOR_MAP: Record<string, string> = {
+  code: 'text-sky-400',
+  sparkles: 'text-violet-400',
+  terminal: 'text-emerald-400',
+  'file-text': 'text-amber-400',
+  folder: 'text-orange-400',
+  image: 'text-pink-400',
+  link: 'text-cyan-400',
+};
+
 interface CollapsibleSectionProps {
   open: boolean;
   children: React.ReactNode;
@@ -95,6 +105,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
             <nav className="mt-1 space-y-0.5 pb-1">
               {mockItemTypes.map((type) => {
                 const Icon = ICON_MAP[type.icon] ?? Folder;
+                const color = ICON_COLOR_MAP[type.icon] ?? 'text-muted-foreground';
                 const slug = type.name.toLowerCase();
                 return (
                   <Link
@@ -102,7 +113,7 @@ export default function Sidebar({ onClose }: SidebarProps) {
                     href={`/items/${slug}`}
                     className="flex items-center gap-2.5 rounded-md px-2 py-1.5 text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-colors group"
                   >
-                    <Icon className="h-4 w-4 shrink-0 text-muted-foreground group-hover:text-sidebar-accent-foreground" />
+                    <Icon className={cn('h-4 w-4 shrink-0', color)} />
                     <span className="flex-1">{type.name}</span>
                     <span className="text-xs text-muted-foreground">{type.count}</span>
                   </Link>
